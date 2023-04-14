@@ -1,0 +1,33 @@
+{
+  "name": "datastructureskit",
+  "version": "1.0.0",
+  "description": "DataStructuresJSKit is an easy-to-use package that adds essential data structures to your JavaScript code. With support for Typescript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "data",
+    "structures",
+    "algorithms",
+    "collections",
+    "linked",
+    "list",
+    "stacks",
+    "queue",
+    "tree",
+    "graph",
+    "map",
+    "hash",
+    "table",
+    "set",
+    "heap",
+    "array",
+    "javascript",
+    "dynamic",
+    "programming",
+    "typescript"
+  ],
+  "author": "abdo",
+  "license": "ISC"
+}
