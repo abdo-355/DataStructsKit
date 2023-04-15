@@ -64,4 +64,30 @@ export default class LinkedList {
 
     return values;
   };
+
+  public has = (val: any) => {
+    return this.toArray().includes(val);
+  };
+
+  public delete = (index: number) => {
+    let temp: LinkedListNode | null = this.head;
+    if (index <= 0) {
+      // delete the first node
+      this.head = this.head.next as LinkedListNode;
+    } else if (index >= this.length - 1) {
+      // delete the last node
+      for (let i = 0; i < this.length - 2; i++) {
+        temp = temp!.next;
+      }
+      this.tail = temp;
+      this.tail!.next = null;
+    } else {
+      for (let i = 0; i < index - 1; i++) {
+        temp = temp!.next;
+      }
+      temp!.next = temp!.next!.next;
+    }
+
+    this.length--;
+  };
 }

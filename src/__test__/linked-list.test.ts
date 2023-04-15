@@ -87,6 +87,57 @@ describe("LinkedList", () => {
     });
   });
 
+  describe("deletion", () => {
+    it("should 'delete' the head node if the given index is 0 or a negative number", () => {
+      const newLinkedList = new LinkedList("testValue");
+      newLinkedList.add("testValue2");
+
+      newLinkedList.delete(0);
+
+      expect(newLinkedList.head.value).toBe("testValue2");
+      expect(newLinkedList.toArray()).toEqual(["testValue2"]);
+      expect(newLinkedList.length).toBe(1);
+
+      newLinkedList.delete(-3);
+
+      expect(newLinkedList.head).toBe(null);
+      expect(newLinkedList.toArray()).toEqual([]);
+      expect(newLinkedList.length).toBe(0);
+    });
+
+    it("should 'delete' the tail node if the given index is the length of the linked list or larger", () => {
+      const newLinkedList = new LinkedList("testValue");
+      newLinkedList.add("testValue2");
+
+      newLinkedList.delete(1);
+
+      expect(newLinkedList.head.value).toBe("testValue");
+      expect(newLinkedList.tail!.value).toBe("testValue");
+      expect(newLinkedList.length).toBe(1);
+
+      newLinkedList.add("testValue3");
+      newLinkedList.add("testValue4");
+      newLinkedList.delete(5);
+
+      expect(newLinkedList.head.value).toBe("testValue");
+      expect(newLinkedList.tail!.value).toBe("testValue3");
+      expect(newLinkedList.length).toBe(2);
+    });
+
+    it("should 'delete' the correct node in the linked list", () => {
+      const newLinkedList = new LinkedList("0");
+
+      newLinkedList.add("1");
+      newLinkedList.add("2");
+      newLinkedList.add("3");
+
+      newLinkedList.delete(2);
+
+      expect(newLinkedList.toArray()).toEqual(["0", "1", "3"]);
+      expect(newLinkedList.length).toBe(3);
+    });
+  });
+
   describe("showing values", () => {
     it("should return an array of the linked list values when calling the linkedlist toArray method", () => {
       const newLinkedList = new LinkedList("test");
@@ -96,6 +147,18 @@ describe("LinkedList", () => {
       newLinkedList.add("test2");
       expect(newLinkedList.toArray()).toEqual(["test", "test2"]);
       expect(newLinkedList.length).toBe(2);
+    });
+
+    it("should return false when calling the linkedlist has method with a value that doesn't exist", () => {
+      const newLinkedList = new LinkedList("test");
+
+      expect(newLinkedList.has("test2")).toBe(false);
+    });
+
+    it("should return true when calling the linkedlist has method with a value that exists", () => {
+      const newLinkedList = new LinkedList("test");
+
+      expect(newLinkedList.has("test")).toBe(true);
     });
   });
 });
