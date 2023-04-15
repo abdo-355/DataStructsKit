@@ -9,7 +9,7 @@ export class LinkedListNode {
   }
 }
 
-export default class LinkedList {
+export class LinkedList {
   public head: LinkedListNode;
   public tail: LinkedListNode | null;
   public length: number;

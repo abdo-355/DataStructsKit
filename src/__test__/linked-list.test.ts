@@ -1,4 +1,4 @@
-import LinkedList, { LinkedListNode } from "../linked-list";
+import { LinkedList, LinkedListNode } from "../linked-list";
 
 describe("LinkedListNode", () => {
   it("should create a linked list node", () => {
