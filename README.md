@@ -2,7 +2,7 @@
 
 The `DataStructsKit` package provides a simple implementation of a collection of data structure. The package is designed to be lightweight and easy to use, and currently supports the following data structures:
 
-- [`linked lists`](#linkedlists)
+- [`linked lists`](#linked-lists)
 
 ### Installation
 
@@ -18,15 +18,7 @@ To use the `DataStructsKit` package, simply import the data structure you want t
 import { LinkedListNode, LinkedList } from "datastructskit";
 ```
 
-## Linked lists {#linkedlists}
-
-#### supported methods:
-
-- [`add`](#linkedlist-add): Adds a new node to the end of the linked list.
-- [`insert`](#linkedlist-insert): Inserts a new node at a specified position in the linked list.
-- [`toArray`](#linkedlist-toarray): Returns an array of all the values in the linked list.
-- [`has`](#linkedlist-has): Returns `true` if the specified value is found in the linked list, `false` otherwise.
-- [`delete`](#linkedlist-delete): Deletes the node at the specified index in the linked list.
+## Linked lists
 
 You can then create a new linked list by calling the `LinkedList` constructor:
 
@@ -44,7 +36,7 @@ This creates a new linked list with a single node, with the value `'head'`.
 
 #### And the following methods:
 
-##### `add` {#linkedlist-add}
+##### `add`
 
 The `add` method adds a new node to the end of the linked list.
 
@@ -52,7 +44,7 @@ The `add` method adds a new node to the end of the linked list.
 linkedList.add("new tail");
 ```
 
-##### `insert` {#linkedlist-insert}
+##### `insert`
 
 The `insert` method inserts a new node at a specified position in the linked list.
 
@@ -60,7 +52,7 @@ The `insert` method inserts a new node at a specified position in the linked lis
 linkedList.insert(1, "new node");
 ```
 
-##### `toArray` {#linkedlist-toarray}
+##### `toArray`
 
 The `toArray` method returns an array of all the values in the linked list.
 
@@ -68,7 +60,7 @@ The `toArray` method returns an array of all the values in the linked list.
 const values = linkedList.toArray();
 ```
 
-##### `has` {#linkedlist-has}
+##### `has`
 
 The `has` method returns `true` if the specified value is found in the linked list, `false` otherwise.
 
@@ -76,7 +68,7 @@ The `has` method returns `true` if the specified value is found in the linked li
 const hasValue = linkedList.has("new tail");
 ```
 
-##### `delete` {#linkedlist-delete}
+##### `delete`
 
 The `delete` method deletes the node at the specified `index` in the linked list.
 
