@@ -2,7 +2,7 @@
 
 The `DataStructsKit` package provides a simple implementation of a collection of data structure. The package is designed to be lightweight and easy to use, and currently supports the following data structures:
 
-- [`linked lists`](#linked-lists)
+- [`linked lists & doubly linked lists`](#linked-lists--doubly-linked-lists)
 
 ### Installation
 
@@ -15,20 +15,26 @@ npm install datastructskit
 To use the `DataStructsKit` package, simply import the data structure you want to use from the package:
 
 ```javascript
-import { LinkedListNode, LinkedList } from "datastructskit";
+import {
+  LinkedListNode,
+  LinkedList,
+  DoublyLinkedList,
+  DoublyLinkedListNode,
+} from "datastructskit";
 ```
 
-## Linked lists
+## Linked lists & Doubly linked lists
 
-You can then create a new linked list by calling the `LinkedList` constructor:
+You can create a new linked list(singly) or a doubly linked list by calling the `LinkedList` or `DoublyLinkedList` constructor:
 
 ```javascript
 const linkedList = new LinkedList("head");
+const doublyLinkedList = new DoublyLinkedList("head");
 ```
 
-This creates a new linked list with a single node, with the value `'head'`.
+This creates a new linked list with a single node, with the value `"head"`.
 
-#### The `LinkedList` has the following properties:
+#### The generated list has the following properties:
 
 - `head`: A reference to the first node in the linked list.
 - `tail`: A reference to the last node in the linked list.
@@ -78,7 +84,7 @@ linkedList.delete(1);
 
 #### Datatypes
 
-**Note** that the `LinkedList` package supports any datatype, and not just strings or numbers. You can use any valid JavaScript datatype as the value for a node in the linked list.
+**Note** that the `LinkedList` and the `DoublyLinkedList` support any datatype, and not just strings or numbers. You can use any valid JavaScript datatype as the value for a node in the list.
 
 ## license
 
