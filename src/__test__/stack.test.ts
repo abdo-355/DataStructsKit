@@ -24,6 +24,12 @@ describe("Stack", () => {
       expect(newStack.peek()).toEqual(3);
     });
 
+    it("should return undefined if the stack is empty with the 'peek' method", () => {
+      const newStack = new Stack();
+
+      expect(newStack.peek()).toEqual(undefined);
+    });
+
     it("should return true if the stack is empty with the 'isEmpty' method", () => {
       const newStack = new Stack();
 
@@ -100,6 +106,32 @@ describe("Stack", () => {
       const newStack = new Stack();
 
       expect(newStack.pop()).toEqual(undefined);
+    });
+  });
+
+  describe("clear", () => {
+    it("should remove all items from the stack", () => {
+      const newStack = new Stack();
+
+      newStack.push(1).push(2).push(3);
+      newStack.clear();
+      expect(newStack.items).toEqual([]);
+    });
+
+    it("should set the length to 0", () => {
+      const newStack = new Stack();
+
+      newStack.push(1).push(2).push(3);
+      newStack.clear();
+      expect(newStack.length).toEqual(0);
+    });
+
+    it("should chain other methods", () => {
+      const newStack = new Stack();
+
+      newStack.push(1).push(2).push(3);
+      newStack.clear().push(5);
+      expect(newStack.items).toEqual([5]);
     });
   });
 });

@@ -29,4 +29,11 @@ export default class Stack {
     this.length--;
     return this.items.pop();
   };
+
+  public clear = () => {
+    this.items = [];
+    this.length = 0;
+
+    return this;
+  };
 }
