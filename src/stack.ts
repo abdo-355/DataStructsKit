@@ -11,6 +11,10 @@ export default class Stack {
     return this.items[this.length - 1];
   };
 
+  public isEmpty = () => {
+    return this.length === 0;
+  };
+
   public push = (value: any) => {
     this.items.push(value);
 
