@@ -22,4 +22,11 @@ export default class Stack {
 
     return this;
   };
+
+  public pop = () => {
+    if (this.length === 0) return;
+
+    this.length--;
+    return this.items.pop();
+  };
 }

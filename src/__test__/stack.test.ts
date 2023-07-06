@@ -63,4 +63,43 @@ describe("Stack", () => {
       expect(newStack.length).toEqual(4);
     });
   });
+
+  describe("pop", () => {
+    it("should remove the last item added to the stack", () => {
+      const newStack = new Stack();
+
+      newStack.push(1).push(2).push(3);
+      newStack.pop();
+      expect(newStack.items).toEqual([1, 2]);
+    });
+
+    it("should decrease the length of the stack", () => {
+      const newStack = new Stack();
+
+      newStack.push(1).push(2).push(3);
+      expect(newStack.length).toEqual(3);
+
+      newStack.pop();
+      expect(newStack.length).toEqual(2);
+
+      newStack.pop();
+      expect(newStack.length).toEqual(1);
+
+      newStack.pop();
+      expect(newStack.length).toEqual(0);
+    });
+
+    it("should return the removed item", () => {
+      const newStack = new Stack();
+
+      newStack.push(1).push(2).push(3);
+      expect(newStack.pop()).toEqual(3);
+    });
+
+    it("should return undefined if the stack is empty", () => {
+      const newStack = new Stack();
+
+      expect(newStack.pop()).toEqual(undefined);
+    });
+  });
 });
