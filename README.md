@@ -3,6 +3,7 @@
 The `DataStructsKit` package provides a simple implementation of a collection of data structure. The package is designed to be lightweight and easy to use, and currently supports the following data structures:
 
 - [`linked lists & doubly linked lists`](#linked-lists--doubly-linked-lists)
+- [`stacks`](#stacks)
 
 ### Installation
 
@@ -85,6 +86,67 @@ linkedList.delete(1);
 #### Datatypes
 
 **Note** that the `LinkedList` and the `DoublyLinkedList` support any datatype, and not just strings or numbers. You can use any valid JavaScript datatype as the value for a node in the list.
+
+# stacks
+
+You can create a new stack by calling the `Stack` constructor:
+
+```javascript
+const stack = new Stack();
+```
+
+This creates a new stack with no elements.
+
+#### The stack has the following properties:
+
+- `items`: An array that holds the elements of the stack.
+- `length`: The number of elements in the stack.
+
+#### And the following methods:
+
+##### `peek`
+
+The `peek` method returns the element at the top of the stack without removing it.
+
+```javascript
+const topElement = stack.peek();
+```
+
+##### `isEmpty`
+
+The `isEmpty` method returns `true` if the stack is empty, `false` otherwise.
+
+```javascript
+const emptyStatus = stack.isEmpty();
+```
+
+##### `push`
+
+The `push` method adds a new element to the top of the stack.
+
+```javascript
+stack.push(value);
+```
+
+##### `pop`
+
+The `pop` method removes and **returns** the element at the top of the stack.
+
+```javascript
+const removedElement = stack.pop();
+```
+
+##### `clear`
+
+The `clear` method removes all elements from the stack, making it empty.
+
+```javascript
+stack.clear();
+```
+
+#### Data Types
+
+Note that the `Stack` class supports any data type. You can use any valid JavaScript data type as the value for an element in the stack.
 
 ## license
 
