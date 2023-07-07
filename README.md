@@ -3,7 +3,8 @@
 The `DataStructsKit` package provides a simple implementation of a collection of data structure. The package is designed to be lightweight and easy to use, and currently supports the following data structures:
 
 - [`linked lists & doubly linked lists`](#linked-lists--doubly-linked-lists)
-- [`stacks`](#stacks)
+- [`stacks`](#stack)
+- [`queues`](#queue)
 
 ### Installation
 
@@ -87,7 +88,7 @@ linkedList.delete(1);
 
 **Note** that the `LinkedList` and the `DoublyLinkedList` support any datatype, and not just strings or numbers. You can use any valid JavaScript datatype as the value for a node in the list.
 
-# stacks
+# Stack
 
 You can create a new stack by calling the `Stack` constructor:
 
@@ -128,6 +129,12 @@ The `push` method adds a new element to the top of the stack.
 stack.push(value);
 ```
 
+It returns the updated `Stack` instance, allowing you to chain other methods to perform additional operations on the stack. For example:
+
+```javascript
+stack.push(value).push(anotherValue);
+```
+
 ##### `pop`
 
 The `pop` method removes and **returns** the element at the top of the stack.
@@ -147,6 +154,94 @@ stack.clear();
 #### Data Types
 
 Note that the `Stack` class supports any data type. You can use any valid JavaScript data type as the value for an element in the stack.
+
+# Queue
+
+To create a new queue, call the `Queue` constructor:
+
+```javascript
+const queue = new Queue();
+```
+
+This creates a new empty queue.
+
+#### The queue has the following properties:
+
+- `first`: A reference to the first node in the queue.
+- `last`: A reference to the last node in the queue.
+- `size`: The number of nodes in the queue.
+
+#### And the following methods:
+
+##### `isEmpty`
+
+The `isEmpty` method returns `true` if the queue is empty, `false` otherwise.
+
+```javascript
+const emptyStatus = queue.isEmpty();
+```
+
+##### `toArray`
+
+The `toArray` method returns an array containing all the values in the queue, in the order they were added.
+
+```javascript
+const items = queue.toArray();
+```
+
+##### `peek`
+
+The `peek` method returns the value of the first node in the queue without removing it.
+
+```javascript
+const firstValue = queue.peek();
+```
+
+##### `enqueue`
+
+The `enqueue` method adds a new element to the end of the queue.
+
+```javascript
+queue.enqueue(value);
+```
+
+Certainly! Here's an updated version of the documentation for the `enqueue` method that includes information about chaining other methods:
+
+##### `enqueue`
+
+The `enqueue` method adds a new element to the end of the queue.
+
+```javascript
+queue.enqueue(value);
+```
+
+It returns the updated `Queue` instance, allowing you to chain other methods to perform additional operations on the queue. For example:
+
+```javascript
+queue.enqueue(value).enqueue(anotherValue);
+```
+
+##### `dequeue`
+
+The `dequeue` method removes and returns the value of the first node in the queue.
+
+```javascript
+const removedValue = queue.dequeue();
+```
+
+##### `clear`
+
+The `clear` method removes all nodes from the queue, making it empty.
+
+```javascript
+queue.clear();
+```
+
+Note that the `enqueue`, `dequeue`, and `peek` methods operate on the first and last nodes of the queue using the `LinkedListNode` class.
+
+### Data Types
+
+The `Queue` class supports any data type. You can use any valid JavaScript data type as the value for a node in the queue.
 
 ## license
 
