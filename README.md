@@ -22,6 +22,8 @@ import {
   LinkedList,
   DoublyLinkedList,
   DoublyLinkedListNode,
+  Stack,
+  Queue,
 } from "datastructskit";
 ```
 
