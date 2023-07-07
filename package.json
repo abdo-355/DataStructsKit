@@ -1,6 +1,6 @@
 {
   "name": "datastructskit",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "DataStructuresJSKit is an easy-to-use package that adds essential data structures to your JavaScript code. With support for Typescript.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
