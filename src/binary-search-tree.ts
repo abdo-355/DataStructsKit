@@ -51,7 +51,7 @@ export class BinarySearchTree {
     return value instanceof Date ? "date" : typeof value;
   };
 
-  public lookup = (value: BSTVNodeValue) => {
+  public search = (value: BSTVNodeValue) => {
     let curr = this.root;
 
     while (curr) {

@@ -211,11 +211,11 @@ describe("BinarySearchTree", () => {
     });
   });
 
-  describe("lookup", () => {
+  describe("search", () => {
     it("should return null if the value doesn't exist", () => {
       const tree = new BinarySearchTree(5);
-      expect(tree.lookup(6)).toBeNull();
-      expect(tree.lookup(5)).not.toBeNull();
+      expect(tree.search(6)).toBeNull();
+      expect(tree.search(5)).not.toBeNull();
     });
 
     it("should return the node with the given value", () => {
@@ -232,26 +232,26 @@ describe("BinarySearchTree", () => {
         .insert(8);
 
       // the root
-      expect(tree.lookup(5)).not.toBeNull();
-      expect(tree.lookup(5)).toEqual(tree.root);
+      expect(tree.search(5)).not.toBeNull();
+      expect(tree.search(5)).toEqual(tree.root);
 
       // the smallest value
-      expect(tree.lookup(1)).not.toBeNull();
-      expect(tree.lookup(1)).toEqual(tree.root!.left!.left);
+      expect(tree.search(1)).not.toBeNull();
+      expect(tree.search(1)).toEqual(tree.root!.left!.left);
 
       // the biggest value
-      expect(tree.lookup(10)).not.toBeNull();
-      expect(tree.lookup(10)).toEqual(tree.root!.right!.right!.right);
+      expect(tree.search(10)).not.toBeNull();
+      expect(tree.search(10)).toEqual(tree.root!.right!.right!.right);
 
       // random value
-      expect(tree.lookup(8)).not.toBeNull();
-      expect(tree.lookup(8)).toEqual(tree.root!.right!.right!.left!.right);
+      expect(tree.search(8)).not.toBeNull();
+      expect(tree.search(8)).toEqual(tree.root!.right!.right!.left!.right);
     });
   });
 
   it("should work on a tree with one node", () => {
     const tree = new BinarySearchTree(5);
-    expect(tree.lookup(5)).not.toBeNull();
-    expect(tree.lookup(5)).toEqual(tree.root);
+    expect(tree.search(5)).not.toBeNull();
+    expect(tree.search(5)).toEqual(tree.root);
   });
 });
