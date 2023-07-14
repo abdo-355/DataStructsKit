@@ -247,11 +247,90 @@ describe("BinarySearchTree", () => {
       expect(tree.search(8)).not.toBeNull();
       expect(tree.search(8)).toEqual(tree.root!.right!.right!.left!.right);
     });
+
+    it("should work on a tree with one node", () => {
+      const tree = new BinarySearchTree(5);
+      expect(tree.search(5)).not.toBeNull();
+      expect(tree.search(5)).toEqual(tree.root);
+    });
   });
 
-  it("should work on a tree with one node", () => {
-    const tree = new BinarySearchTree(5);
-    expect(tree.search(5)).not.toBeNull();
-    expect(tree.search(5)).toEqual(tree.root);
+  describe("remove", () => {
+    let tree: BinarySearchTree;
+
+    beforeEach(() => {
+      tree = new BinarySearchTree(5);
+      tree
+        .insert(3)
+        .insert(1)
+        .insert(2)
+        .insert(4)
+        .insert(6)
+        .insert(9)
+        .insert(7)
+        .insert(13)
+        .insert(12)
+        .insert(11)
+        .insert(10)
+        .insert(8);
+
+      /*
+         5
+       /   \
+      3     6
+     / \     \
+    1   4      9
+     \       /  \
+      2     7    13
+            \    /
+             8  12
+                /
+              11
+              /
+             10
+      */
+    });
+
+    it("should remove leaf nodes", () => {
+      tree.remove(2);
+
+      expect(tree.search(2)).toBeNull();
+      expect(tree.search(1)!.right).toBeNull();
+      expect(tree.search(1)!.left).toBeNull();
+    });
+
+    it("should remove nodes with one right child", () => {
+      tree.remove(1);
+
+      expect(tree.search(1)).toBeNull();
+      expect(tree.search(3)!.left).toEqual(tree.search(2));
+
+      tree.remove(6);
+
+      expect(tree.search(6)).toBeNull();
+      expect(tree.search(5)!.right).toEqual(tree.search(9));
+    });
+
+    it("should remove nodes with one left child", () => {
+      tree.remove(13);
+
+      expect(tree.search(13)).toBeNull();
+      expect(tree.search(9)!.right).toEqual(tree.search(12));
+    });
+
+    it("should remove nodes with two children", () => {
+      tree.remove(3);
+
+      expect(tree.search(3)).toBeNull();
+      expect(tree.search(5)!.left).toEqual(tree.search(4));
+      expect(tree.search(4)!.left).toEqual(tree.search(1));
+
+      tree.remove(9);
+
+      expect(tree.search(9)).toBeNull();
+      expect(tree.search(6)!.right).toEqual(tree.search(10));
+      expect(tree.search(10)!.right).toEqual(tree.search(13));
+      expect(tree.search(10)!.left).toEqual(tree.search(7));
+    });
   });
 });

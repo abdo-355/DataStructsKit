@@ -111,4 +111,78 @@ export class BinarySearchTree {
 
     return this;
   }
+
+  public remove = (value: BSTVNodeValue) => {
+    let curr: BinarySearchTreeNode | null = this.root;
+    let prev: BinarySearchTreeNode;
+
+    while (curr) {
+      if (value > curr.value) {
+        prev = curr;
+        curr = curr.right;
+      } else if (value < curr.value) {
+        prev = curr;
+        curr = curr.left;
+      } else {
+        if (!curr.right && !curr.left) {
+          if (prev!.right === curr) {
+            prev!.right = null;
+          } else {
+            prev!.left = null;
+          }
+          return this;
+        } else if (!curr.right) {
+          if (prev!.right === curr) {
+            prev!.right = curr.left;
+          } else {
+            prev!.left = curr.left;
+          }
+          return this;
+        } else if (!curr.left) {
+          if (prev!.right === curr) {
+            prev!.right = curr.right;
+          } else {
+            prev!.left = curr.right;
+          }
+          return this;
+        } else {
+          if (!curr.right.left) {
+            curr.right.left = curr.left;
+
+            if (prev!.right === curr) {
+              prev!.right = curr.right;
+            } else {
+              prev!.left = curr.right;
+            }
+            return this;
+          }
+
+          let curr2 = curr.right.left;
+          let prev2 = curr.right;
+
+          while (curr2.left) {
+            prev2 = curr2;
+            curr2 = curr2.left;
+          }
+
+          if (curr2.right) {
+            prev2!.left = curr2.right;
+          }
+
+          curr2.right = curr.right;
+          curr2.left = curr.left;
+
+          if (prev!.right === curr) {
+            prev!.right = curr2;
+          } else {
+            prev!.left = curr2;
+          }
+
+          return this;
+        }
+      }
+    }
+
+    return this;
+  };
 }
