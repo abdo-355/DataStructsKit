@@ -363,4 +363,37 @@ describe("BinarySearchTree", () => {
       expect(tree.remove(99)).toEqual(tree);
     });
   });
+
+  describe("minimum and maximum", () => {
+    it("should work properly on a multi level tree", () => {
+      const tree = new BinarySearchTree(5);
+      tree
+        .insert(3)
+        .insert(1)
+        .insert(2)
+        .insert(4)
+        .insert(6)
+        .insert(9)
+        .insert(7)
+        .insert(13)
+        .insert(12);
+
+      expect(tree.minimum()).toEqual(tree.search(1));
+      expect(tree.maximum()).toEqual(tree.search(13));
+    });
+
+    it("should work properly on a single node tree", () => {
+      const tree = new BinarySearchTree(5);
+
+      expect(tree.minimum()).toEqual(tree.search(5));
+      expect(tree.maximum()).toEqual(tree.search(5));
+    });
+
+    it("should return null if the tree is empty", () => {
+      const tree = new BinarySearchTree();
+
+      expect(tree.minimum()).toBeNull();
+      expect(tree.maximum()).toBeNull();
+    });
+  });
 });

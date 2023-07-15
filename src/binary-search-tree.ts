@@ -198,4 +198,26 @@ export class BinarySearchTree {
 
     return this;
   };
+
+  public minimum = () => {
+    if (!this.root) return null;
+
+    let curr = this.root;
+    while (curr!.left) {
+      curr = curr!.left;
+    }
+
+    return curr;
+  };
+
+  public maximum = () => {
+    if (!this.root) return null;
+
+    let curr = this.root;
+    while (curr!.right) {
+      curr = curr!.right;
+    }
+
+    return curr;
+  };
 }
