@@ -149,6 +149,13 @@ export class BinarySearchTree {
           if (!curr.right.left) {
             curr.right.left = curr.left;
 
+            // if the current value is the root we don't have a prev
+            if (this.root === curr) {
+              curr.right.left = curr.left;
+              this.root = curr.right;
+              return this;
+            }
+
             if (prev!.right === curr) {
               prev!.right = curr.right;
             } else {
@@ -171,6 +178,12 @@ export class BinarySearchTree {
 
           curr2.right = curr.right;
           curr2.left = curr.left;
+
+          // if the current value is the root we don't have a prev
+          if (this.root === curr) {
+            this.root = curr2;
+            return this;
+          }
 
           if (prev!.right === curr) {
             prev!.right = curr2;

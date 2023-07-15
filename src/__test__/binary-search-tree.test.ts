@@ -332,5 +332,35 @@ describe("BinarySearchTree", () => {
       expect(tree.search(10)!.right).toEqual(tree.search(13));
       expect(tree.search(10)!.left).toEqual(tree.search(7));
     });
+
+    it("should remove the root node", () => {
+      tree.remove(5);
+
+      expect(tree.search(5)).toBeNull();
+      expect(tree.root).toEqual(tree.search(6));
+
+      tree.remove(6);
+
+      expect(tree.search(6)).toBeNull();
+      expect(tree.root).toEqual(tree.search(7));
+    });
+
+    it("should support method chaining", () => {
+      tree.remove(5).remove(6).remove(7);
+
+      expect(tree.search(5)).toBeNull();
+      expect(tree.search(6)).toBeNull();
+      expect(tree.search(7)).toBeNull();
+    });
+
+    it("shouln't break if we remove a value that doesn't exist", () => {
+      expect(tree.search(99)).toBeNull();
+
+      expect(() => {
+        tree.remove(99);
+      }).not.toThrowError();
+
+      expect(tree.remove(99)).toEqual(tree);
+    });
   });
 });
