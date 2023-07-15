@@ -396,4 +396,44 @@ describe("BinarySearchTree", () => {
       expect(tree.maximum()).toBeNull();
     });
   });
+
+  describe("clearing", () => {
+    it("should clear the tree", () => {
+      const tree = new BinarySearchTree(5);
+      tree
+        .insert(3)
+        .insert(1)
+        .insert(2)
+        .insert(4)
+        .insert(6)
+        .insert(9)
+        .insert(7)
+        .insert(13)
+        .insert(12)
+        .clear();
+
+      expect(tree.root).toBeNull();
+      expect(tree.search(4)).toBeNull();
+      expect(tree.search(13)).toBeNull();
+    });
+
+    it("should support method chaiining", () => {
+      const tree = new BinarySearchTree(5);
+      tree.insert(3).clear().insert(1);
+
+      expect(tree.search(3)).toBeNull();
+      expect(tree.root).not.toBeNull();
+      expect(tree.search(1)).not.toBeNull();
+    });
+
+    it("shouldn't break if we call clear on an empty tree", () => {
+      const tree = new BinarySearchTree();
+      expect(() => {
+        tree.clear();
+      }).not.toThrowError();
+
+      expect(tree.root).toBeNull();
+      expect(tree.clear()).toEqual(tree);
+    });
+  });
 });

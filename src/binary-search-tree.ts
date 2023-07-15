@@ -220,4 +220,10 @@ export class BinarySearchTree {
 
     return curr;
   };
+
+  public clear = () => {
+    this.root = null;
+
+    return this;
+  };
 }
