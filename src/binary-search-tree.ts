@@ -228,6 +228,7 @@ export class BinarySearchTree {
 
   public clear = () => {
     this.root = null;
+    this.dataType = null;
 
     return this;
   };

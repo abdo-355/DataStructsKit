@@ -5,6 +5,7 @@ The `DataStructsKit` package provides a simple implementation of a collection of
 - [`linked lists & doubly linked lists`](#linked-lists--doubly-linked-lists)
 - [`stacks`](#stack)
 - [`queues`](#queue)
+- [`binary search tree`](#binary-search-tree)
 
 ### Installation
 
@@ -24,6 +25,8 @@ import {
   DoublyLinkedListNode,
   Stack,
   Queue,
+  BinarySearchTree,
+  BinarySearchTreeNode,
 } from "datastructskit";
 ```
 
@@ -244,6 +247,104 @@ Note that the `enqueue`, `dequeue`, and `peek` methods operate on the first and 
 ### Data Types
 
 The `Queue` class supports any data type. You can use any valid JavaScript data type as the value for a node in the queue.
+
+# Binary Search Tree
+
+You can create an empty binary search tree by calling the `BinarySearchTree` constructor:
+
+```javascript
+const tree = new BinarySearchTree();
+```
+
+or you can create a binary with a root value like this:
+
+```javascript
+const tree = new BinarySearchTree(value);
+```
+
+#### The binary search tree has the following properties:
+
+- `root`: A reference to the root node of the tree.
+- `dataType`: The type of data stored in the tree, which can be `"string"`, `"number"`, or `"date"`. If the tree is empty, the `dataType` is `null`.
+
+#### And the following methods:
+
+##### `search`
+
+The `search` method searches for a node with the specified value in the binary search tree and returns the node if found, or `null` if not found.
+
+```javascript
+const node = tree.search(value);
+```
+
+##### `insert`
+
+The `insert` method adds a new node with the specified value to the binary search tree.
+
+```javascript
+tree.insert(value);
+```
+
+It returns the updated `BinarySearchTree` instance, allowing you to chain other methods to perform additional operations on the tree. For example:
+
+```javascript
+tree.insert(value).insert(anotherValue);
+```
+
+##### `remove`
+
+The `remove` method removes a node with the specified value from the binary search tree.
+
+```javascript
+tree.remove(value);
+```
+
+like the `insert` method it returns the updated `BinarySearchTree` instance, allowing you to chain other methods even if target node wasn't found.
+
+```javascript
+tree.remove(value).remove(anotherValue);
+```
+
+##### `minimum`
+
+The `minimum` method returns the node with the minimum value in the binary search tree, or `null` if the tree is empty.
+
+```javascript
+const minNode = tree.minimum();
+```
+
+##### `maximum`
+
+The `maximum` method returns the node with the maximum value in the binary search tree, or `null` if the tree is empty.
+
+```javascript
+const maxNode = tree.maximum();
+```
+
+##### `clear`
+
+The `clear` method removes all nodes from the binary search tree and resets its `dataType`, making it empty.
+
+```javascript
+tree.clear();
+```
+
+It also support method chaining
+
+```javascript
+tree.clear().insert(value);
+```
+
+### Data Types
+
+The `BinarySearchTree` class supports values of type `string`, `number`, and `Date`. You can use any valid JavaScript value of these types when inserting or searching for nodes in the tree. If you attempt to insert a value that does not match the current `dataType` of the tree, an <span style="color:red">error</span> will be thrown.
+
+**Note:** The `BinarySearchTreeNode` class represents a node in the binary search tree. It has the following properties:
+
+- `value`: The value stored in the node. It can be a `string`, `number`, or `Date`.
+- `frequency`: The number of occurrences of the value in the tree.
+- `right`: A reference to the right child node.
+- `left`: A reference to the left child node.
 
 ## license
 
