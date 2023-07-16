@@ -345,6 +345,17 @@ describe("BinarySearchTree", () => {
       expect(tree.root).toEqual(tree.search(7));
     });
 
+    it("should decrease the frequency and not remove the node if the frequency is more than 1", () => {
+      tree.insert(3);
+      expect(tree.search(3)!.frequency).toEqual(2);
+
+      tree.remove(3);
+
+      expect(tree.search(3)).not.toBeNull();
+      expect(tree.search(3)!.frequency).toEqual(1);
+      expect(tree.search(5)!.left).toEqual(tree.search(3));
+    });
+
     it("should support method chaining", () => {
       tree.remove(5).remove(6).remove(7);
 

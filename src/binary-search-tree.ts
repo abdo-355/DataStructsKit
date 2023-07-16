@@ -124,6 +124,11 @@ export class BinarySearchTree {
         prev = curr;
         curr = curr.left;
       } else {
+        if (curr.frequency > 1) {
+          curr.frequency--;
+          return this;
+        }
+
         if (!curr.right && !curr.left) {
           if (prev!.right === curr) {
             prev!.right = null;
